@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+exists () {
+    command -v "$1" &> /dev/null;
+}
+
+# Rust
+echo -n "- Checking rust"
+if ! exists rustup; then
+    echo ", missing, will install"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh    
+else
+    echo ", already exist"
+fi
+
