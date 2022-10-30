@@ -1,0 +1,26 @@
+[user]
+name = Björn Westlin 
+email = bwestlin@gmail.com
+
+[color]
+diff = auto
+status = auto
+branch = auto
+
+[apply]
+whitespace = nowarn
+
+[alias]
+ci = commit -v
+co = checkout
+st = status
+br = branch
+bra = branch -a
+hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+logd = log --decorate=short
+
+[merge]
+tool = meld
+
+[push]
+default = current
