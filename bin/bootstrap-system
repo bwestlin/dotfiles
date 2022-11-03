@@ -4,6 +4,27 @@ exists () {
     command -v "$1" &> /dev/null;
 }
 
+# Ubuntu debs
+echo -n "- Checking Ubuntu packages"
+if uname -v | grep -q Ubuntu; then
+    echo ", will install"
+    # TODO Check ip packages already installed
+    sudo apt install \
+        build-essential \
+        curl \
+        direnv \
+        htop \
+        keepassx \
+        manpages-dev \
+        tmux \
+        vim\
+        yadm \
+        jq \
+
+else
+    echo ", not on Ubuntu, skipping"
+fi
+
 # Rust
 echo -n "- Checking rust"
 if ! exists rustup; then
@@ -12,4 +33,3 @@ if ! exists rustup; then
 else
     echo ", already exist"
 fi
-
