@@ -19,6 +19,7 @@ if uname -v | grep -q Ubuntu; then
         libssl-dev \
         manpages-dev \
         nmap \
+        pkg-config \
         tmux \
         vim\
         yadm \
