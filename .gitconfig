@@ -11,13 +11,18 @@ branch = auto
 whitespace = nowarn
 
 [alias]
+ap = add -p
 ci = commit -v
 co = checkout
+cp = checkout -p
 st = status
 br = branch
 bra = branch -a
+d = diff
+dc = d --cached
 hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-logd = log --decorate=short
+logd = log --decorate=short --stat
+logp = logd --patch
 
 [merge]
 tool = meld
