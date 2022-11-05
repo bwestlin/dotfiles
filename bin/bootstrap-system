@@ -44,7 +44,7 @@ do
     echo -n "- Checking $crate"
     if ! exists "$crate"; then
         echo ", missing, will install"
-        cargi install "$crate"
+        cargo install "$crate"
     else
         echo ", already exist"
     fi
