@@ -34,3 +34,19 @@ if ! exists rustup; then
 else
     echo ", already exist"
 fi
+
+# Rust utils
+for crate in \
+    cargo-watch \
+    enw \
+    simple-http-server
+do
+    echo -n "- Checking $crate"
+    if ! exists "$crate"; then
+        echo ", missing, will install"
+        cargi install "$crate"
+    else
+        echo ", already exist"
+    fi
+done
+
