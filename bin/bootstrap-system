@@ -14,12 +14,13 @@ if uname -v | grep -q Ubuntu; then
         curl \
         direnv \
         htop \
+        jq \
         keepassx \
         manpages-dev \
+        nmap \
         tmux \
         vim\
         yadm \
-        jq \
 
 else
     echo ", not on Ubuntu, skipping"
@@ -29,7 +30,7 @@ fi
 echo -n "- Checking rust"
 if ! exists rustup; then
     echo ", missing, will install"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh    
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 else
     echo ", already exist"
 fi
