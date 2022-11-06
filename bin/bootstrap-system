@@ -22,7 +22,8 @@ if uname -v | grep -q Ubuntu; then
         pkg-config \
         ripgrep \
         tmux \
-        vim\
+        vim \
+        xclip \
         yadm \
 
 else
