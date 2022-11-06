@@ -21,6 +21,7 @@ if uname -v | grep -q Ubuntu; then
         nmap \
         pkg-config \
         ripgrep \
+        shellcheck \
         tmux \
         vim \
         xclip \
