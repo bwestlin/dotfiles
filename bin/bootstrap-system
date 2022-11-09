@@ -29,6 +29,19 @@ if uname -v | grep -q Ubuntu; then
         xclip \
         yadm \
 
+    # Snaps
+    for snap in \
+        exercism
+    do
+        echo -n "- Checking $snap"
+        if ! exists "$snap"; then
+            echo ", missing, will install"
+            sudo snap install "$snap"
+        else
+            echo ", already exist"
+        fi
+    done
+
 else
     echo ", not on Ubuntu, skipping"
 fi
@@ -57,4 +70,3 @@ do
         echo ", already exist"
     fi
 done
-
