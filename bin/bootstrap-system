@@ -36,6 +36,7 @@ echo -n "- Checking rust"
 if ! exists rustup; then
     echo ", missing, will install"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    . "$HOME/.cargo/env"
 else
     echo ", already exist"
 fi
