@@ -13,6 +13,7 @@ if uname -v | grep -q Ubuntu; then
         build-essential \
         curl \
         direnv \
+        golang-go \
         htop \
         jq \
         keepassx \
