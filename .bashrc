@@ -120,3 +120,8 @@ fi
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
+
+# Direnv
+if command -v direnv &> /dev/null; then
+    eval "$(direnv hook bash)"
+fi
