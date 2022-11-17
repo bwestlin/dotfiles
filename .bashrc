@@ -129,3 +129,6 @@ fi
 if command -v direnv &> /dev/null; then
     eval "$(direnv hook bash)"
 fi
+
+# Write and reload history on each prompt. Needs to be last (or so..)
+PROMPT_COMMAND="history -a; history -n;$PROMPT_COMMAND"
