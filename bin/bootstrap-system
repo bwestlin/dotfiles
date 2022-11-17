@@ -44,6 +44,9 @@ if uname -v | grep -q Ubuntu; then
         fi
     done
 
+    # Yank sudo cache
+    sudo -k
+
 else
     echo ", not on Ubuntu, skipping"
 fi
