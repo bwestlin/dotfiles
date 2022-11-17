@@ -57,7 +57,10 @@ else
 fi
 
 # Rust utils
+# TODO Currently updates will not be pulled in
 for crate in \
+    binstall \
+    cargo-nextest \
     cargo-watch \
     enw \
     simple-http-server
