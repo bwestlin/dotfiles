@@ -101,9 +101,13 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Utils
-
 if [ -f ~/.bash_utils ]; then
     . ~/.bash_utils
+fi
+
+# Local stuff
+if [ -f ~/.bashrc_local ]; then
+    . ~/.bashrc_local
 fi
 
 # enable programmable completion features (you don't need to enable

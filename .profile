@@ -29,3 +29,8 @@ fi
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
+
+# Local stuff
+if [ -f ~/.profile_local ]; then
+    . ~/.profile_local
+fi
