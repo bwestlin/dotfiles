@@ -16,10 +16,12 @@ if uname -v | grep -q Ubuntu; then
         direnv \
         golang-go \
         htop \
+        docker.io \
         jq \
         keepassx \
         libssl-dev \
         manpages-dev \
+        net-tools \
         nmap \
         pkg-config \
         ripgrep \
