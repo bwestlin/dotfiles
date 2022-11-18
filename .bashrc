@@ -130,5 +130,10 @@ if command -v direnv &> /dev/null; then
     eval "$(direnv hook bash)"
 fi
 
+# Starship prompt
+if command -v starship &> /dev/null; then
+    eval "$(starship init bash)"
+fi
+
 # Write and reload history on each prompt. Needs to be last (or so..)
-PROMPT_COMMAND="history -a; history -n;$PROMPT_COMMAND"
+PROMPT_COMMAND="savehist \$?;$PROMPT_COMMAND"

@@ -68,7 +68,8 @@ for crate in \
     cargo-nextest \
     cargo-watch \
     enw \
-    simple-http-server
+    simple-http-server \
+    starship
 do
     echo -n "- Checking $crate"
     if ! exists "$crate"; then
