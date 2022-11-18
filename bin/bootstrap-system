@@ -79,3 +79,12 @@ do
         echo ", already exist"
     fi
 done
+
+# Nvm
+echo -n "- Checking nvm"
+if [ ! -d "$HOME/.nvm" ]; then
+    echo ", missing, will install"
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+else
+    echo ", already exist"
+fi
