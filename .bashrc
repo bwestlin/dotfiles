@@ -136,7 +136,7 @@ if command -v starship &> /dev/null; then
 fi
 
 # Write and reload history on each prompt. Needs to be last (or so..)
-PROMPT_COMMAND="savehist \$?;$PROMPT_COMMAND"
+PROMPT_COMMAND="lexit=\$?;history -a;history -n;doexit \$lexit;$PROMPT_COMMAND"
 
 # Nvm
 if [ -f "$HOME/.nvm" ]; then

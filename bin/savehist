@@ -1,5 +1,0 @@
-#!/bin/env bash
-lexit=$(($1))
-history -a
-history -n
-exit $lexit
