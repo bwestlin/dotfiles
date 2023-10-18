@@ -14,9 +14,10 @@ if uname -v | grep -q Ubuntu; then
         cmake \
         curl \
         direnv \
+        docker.io \
+        fonts-recommended \
         golang-go \
         htop \
-        docker.io \
         jq \
         keepassx \
         libssl-dev \
@@ -65,7 +66,9 @@ fi
 # TODO Currently updates will not be pulled in
 for crate in \
     binstall \
+    cargo-expand \
     cargo-nextest \
+    cargo-sweep \
     cargo-watch \
     enw \
     simple-http-server \
