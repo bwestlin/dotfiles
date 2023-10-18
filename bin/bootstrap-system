@@ -71,6 +71,7 @@ for crate in \
     cargo-sweep \
     cargo-watch \
     enw \
+    git-global \
     simple-http-server \
     starship
 do
