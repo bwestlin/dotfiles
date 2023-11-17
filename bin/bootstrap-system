@@ -70,10 +70,13 @@ for crate in \
     cargo-nextest \
     cargo-sweep \
     cargo-watch \
+    dprint \
     enw \
     git-global \
     simple-http-server \
-    starship
+    starship \
+    wasm-pack \
+    wasm-tools
 do
     echo -n "- Checking $crate"
     if ! exists "$crate"; then
