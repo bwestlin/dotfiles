@@ -70,6 +70,7 @@ for crate in \
     cargo-nextest \
     cargo-sweep \
     cargo-watch \
+    cross \
     dprint \
     enw \
     git-global \
