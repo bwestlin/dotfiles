@@ -29,3 +29,6 @@ tool = meld
 
 [push]
 default = current
+
+[core]
+excludesFile = ~/.gitignore_global
