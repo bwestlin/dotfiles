@@ -31,6 +31,7 @@ if lsb_release -a | grep -q Ubuntu; then
         vim \
         xclip \
         yadm \
+        zip \
 
     # Snaps
     for snap in \
