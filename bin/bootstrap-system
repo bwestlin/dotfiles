@@ -6,7 +6,7 @@ exists () {
 
 # Ubuntu debs
 echo -n "- Checking Ubuntu packages"
-if uname -v | grep -q Ubuntu; then
+if lsb_release -a | grep -q Ubuntu; then
     echo ", will install"
     # TODO Check ip packages already installed
     sudo apt install \
@@ -65,7 +65,7 @@ fi
 # Rust utils
 # TODO Currently updates will not be pulled in
 for crate in \
-    binstall \
+    cargo-binstall \
     cargo-expand \
     cargo-nextest \
     cargo-sweep \
