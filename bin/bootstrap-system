@@ -69,6 +69,7 @@ for crate in \
     cargo-binstall \
     cargo-expand \
     cargo-nextest \
+    cargo-release \
     cargo-sweep \
     cargo-watch \
     cross \
