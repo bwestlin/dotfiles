@@ -109,7 +109,9 @@ else
     extensions=$(code --list-extensions)
 
     for ext in \
-        k--kato.intellij-idea-keybindings
+        bierner.markdown-preview-github-styles \
+        k--kato.intellij-idea-keybindings \
+        rust-lang.rust-analyzer
     do
         echo -n "  - Checking extension $ext"
         if [[ $extensions == *"$ext"* ]]; then
