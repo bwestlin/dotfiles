@@ -76,6 +76,7 @@ for crate in \
     dprint \
     enw \
     git-global \
+    see-cat \
     simple-http-server \
     starship \
     wasm-pack \
