@@ -98,3 +98,24 @@ if [ ! -d "$HOME/.nvm" ]; then
 else
     echo ", already exist"
 fi
+
+# VSCode extensions
+echo -n "- Checking VSCode extensions"
+if ! exists code; then
+    echo ", missing, please install!"
+else
+    echo
+    extensions=$(code --list-extensions)
+
+    for ext in \
+        k--kato.intellij-idea-keybindings
+    do
+        echo -n "  - Checking extension $ext"
+        if [[ $extensions == *"$ext"* ]]; then
+            echo ", already installed"
+        else
+            echo ", missing, will install"
+            code --install-extension $ext
+        fi
+    done
+fi
