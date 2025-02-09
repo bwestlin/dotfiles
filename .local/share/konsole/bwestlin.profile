@@ -8,7 +8,7 @@ Parent=FALLBACK/
 [Interaction Options]
 AutoCopySelectedText=true
 CopyTextAsHTML=false
-TrimLeadingSpacesInSelectedText=true
+TrimLeadingSpacesInSelectedText=false
 TrimTrailingSpacesInSelectedText=true
 
 [Scrolling]
