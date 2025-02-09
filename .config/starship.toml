@@ -1,7 +1,5 @@
 format = """
-[](#9A348E)\
-$username\
-[](bg:#DA627D fg:#9A348E)\
+[](#DA627D)\
 $directory\
 [](fg:#DA627D bg:#FCA17D)\
 $git_branch\
@@ -21,7 +19,6 @@ $scala\
 [](fg:#86BBD8 bg:#06969A)\
 $kubernetes\
 [](fg:#06969A bg:#33658A)\
-$time\
 $cmd_duration\
 $status\
 [ ](fg:#33658A)\
@@ -29,13 +26,6 @@ $status\
 
 # Disable the blank line at the start of the prompt
 # add_newline = false
-
-# You can also replace your username with a neat symbol like  to save some space
-[username]
-show_always = true
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
-format = '[$user ]($style)'
 
 [directory]
 style = "bg:#DA627D"
@@ -125,16 +115,10 @@ symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[ $time ]($style)'
-
 [cmd_duration]
 min_time = 500
 style = "bg:#33658A"
-format = "[⏱ $duration ]($style)"
+format = "[ ⏱ $duration ]($style)"
 
 [status]
 style = "bg:#33658A fg:#FF4444"
