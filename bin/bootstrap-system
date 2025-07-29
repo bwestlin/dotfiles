@@ -4,7 +4,7 @@ exists () {
     command -v "$1" &> /dev/null;
 }
 
-# Ubuntu debs
+# Ubuntu deps
 echo -n "- Checking Ubuntu packages"
 if lsb_release -a | grep -q Ubuntu; then
     echo ", will install"
@@ -121,4 +121,22 @@ else
             code --install-extension $ext
         fi
     done
+fi
+
+# System config
+echo "- Checking system config"
+
+CURR_MAX_INOTIFY_INSTANCES=$(cat /proc/sys/fs/inotify/max_user_instances)
+if (( CURR_MAX_INOTIFY_INSTANCES < 8192 )); then
+  echo "  - Updating fs.inotify.max_user_instances to 8192..."
+
+  sudo sysctl -q fs.inotify.max_user_instances=8192
+
+  if grep -qE "^\s*fs.inotify.max_user_instances\s*=" "/etc/sysctl.conf"; then
+    echo "    Warning: fs.inotify.max_user_instances already set in /etc/sysctl.conf, will not change it"
+  else
+    echo "fs.inotify.max_user_instances = 8192" | sudo tee -a "/etc/sysctl.conf" > /dev/null
+  fi
+else
+  echo "  - fs.inotify.max_user_instances is already >= 8192 (current: $CURR_MAX_INOTIFY_INSTANCES)"
 fi
