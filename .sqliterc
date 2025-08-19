@@ -1,0 +1,5 @@
+-- Set output mode
+.mode column
+.headers on
+.nullvalue NULL
+
