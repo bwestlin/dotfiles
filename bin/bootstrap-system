@@ -76,6 +76,7 @@ for crate in \
     dprint \
     enw \
     git-global \
+    just \
     see-cat \
     simple-http-server \
     starship \
