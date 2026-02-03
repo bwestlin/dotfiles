@@ -112,7 +112,8 @@ else
     for ext in \
         bierner.markdown-preview-github-styles \
         k--kato.intellij-idea-keybindings \
-        rust-lang.rust-analyzer
+        rust-lang.rust-analyzer \
+        nefrob.vscode-just-syntax
     do
         echo -n "  - Checking extension $ext"
         if [[ $extensions == *"$ext"* ]]; then
