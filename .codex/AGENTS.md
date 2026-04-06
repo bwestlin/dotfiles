@@ -5,15 +5,17 @@
 - Prefer small, reviewable changes.
 - Before coding: restate the goal + constraints in 3-6 bullets.
 - After coding: ensure tests/lint/build run (or explain why they can't).
-- Don't introduce new dependencies unless explicitly requested.
+- Avoid introducing new dependencies unless necessary, but if better dependencies exists bring it up.
 - Ask before making structural refactors.
 - Keep docs in-sync with behavior changes.
 - Be concise in summaries.
+- Preserve existing formatting and style.
 
 ## Repo hygiene
 
-- Add/maintain: README, docs/overview.md, docs/decisions/ (ADRs), and docs/dev-commands.md.
-- If you make a non-trivial decision, write an ADR (short is fine).
+- If there exists a docs folder:
+  - Add/maintain: README, docs/overview.md, docs/decisions/ (ADRs), and docs/dev-commands.md.
+  - If you make a non-trivial decision, write an ADR (short is fine).
 
 ## Output expectations
 

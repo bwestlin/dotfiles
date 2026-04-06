@@ -81,12 +81,14 @@ for crate in \
     simple-http-server \
     starship \
     wasm-pack \
-    wasm-tools
+    wasm-tools \
+    watchexec-cli \
+    worker-build
 do
     echo -n "- Checking $crate"
     if ! exists "$crate"; then
         echo ", missing, will install"
-        cargo install "$crate"
+        cargo install --locked "$crate"
     else
         echo ", already exist"
     fi
