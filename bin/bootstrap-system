@@ -27,6 +27,7 @@ if lsb_release -a | grep -q Ubuntu; then
         pkg-config \
         ripgrep \
         shellcheck \
+        tree \
         tmux \
         vim \
         xclip \
