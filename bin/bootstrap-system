@@ -131,17 +131,25 @@ fi
 # System config
 echo "- Checking system config"
 
+TARGET_MAX_INOTIFY_INSTANCES=8192
+SYSCTL_FILE="/etc/sysctl.d/99-inotify.conf"
+
 CURR_MAX_INOTIFY_INSTANCES=$(cat /proc/sys/fs/inotify/max_user_instances)
-if (( CURR_MAX_INOTIFY_INSTANCES < 8192 )); then
-  echo "  - Updating fs.inotify.max_user_instances to 8192..."
 
-  sudo sysctl -q fs.inotify.max_user_instances=8192
+if (( CURR_MAX_INOTIFY_INSTANCES < TARGET_MAX_INOTIFY_INSTANCES )); then
+  echo "  - Updating fs.inotify.max_user_instances to $TARGET_MAX_INOTIFY_INSTANCES..."
 
-  if grep -qE "^\s*fs.inotify.max_user_instances\s*=" "/etc/sysctl.conf"; then
-    echo "    Warning: fs.inotify.max_user_instances already set in /etc/sysctl.conf, will not change it"
-  else
-    echo "fs.inotify.max_user_instances = 8192" | sudo tee -a "/etc/sysctl.conf" > /dev/null
-  fi
+  echo "fs.inotify.max_user_instances = $TARGET_MAX_INOTIFY_INSTANCES" \
+    | sudo tee "$SYSCTL_FILE" > /dev/null
+
+  sudo sysctl -q fs.inotify.max_user_instances="$TARGET_MAX_INOTIFY_INSTANCES"
 else
-  echo "  - fs.inotify.max_user_instances is already >= 8192 (current: $CURR_MAX_INOTIFY_INSTANCES)"
+  echo "  - fs.inotify.max_user_instances is already >= $TARGET_MAX_INOTIFY_INSTANCES (current: $CURR_MAX_INOTIFY_INSTANCES)"
+
+  if [ ! -f "$SYSCTL_FILE" ]; then
+    echo "  - Persisting value in $SYSCTL_FILE..."
+
+    echo "fs.inotify.max_user_instances = $TARGET_MAX_INOTIFY_INSTANCES" \
+      | sudo tee "$SYSCTL_FILE" > /dev/null
+  fi
 fi
