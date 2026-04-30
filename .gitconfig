@@ -24,7 +24,7 @@ hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 logd = log --decorate=short --stat
 logp = logd --patch
 sw = switch	
-mp = "!git switch main && git pull origin main"
+mp = "!git switch main && git pull"
 
 [merge]
 tool = meld
