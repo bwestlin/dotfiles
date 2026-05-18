@@ -2,6 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+if [ -f "$HOME/.profile_env" ]; then
+    . "$HOME/.profile_env"
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -119,10 +123,6 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
-fi
-
-if [ -f "$HOME/.cargo/env" ]; then
-    . "$HOME/.cargo/env"
 fi
 
 # Direnv
