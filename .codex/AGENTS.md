@@ -5,8 +5,8 @@
 - Prefer small, reviewable changes.
 - Before coding: restate the goal + constraints in 3-6 bullets.
 - After coding: ensure tests/lint/build run (or explain why they can't).
-- Avoid introducing new dependencies unless necessary, but if better dependencies exists bring it up.
-- Ask before making structural refactors.
+- Avoid introducing new dependencies unless necessary, but if adding a dependency would be better please bring it up as a suggestion.
+- Ask before making structural refactors, if it makes sense to do such bring it up as a suggestion.
 - Keep docs in-sync with behavior changes.
 - Be concise in summaries.
 - Preserve existing formatting and style.
@@ -14,8 +14,8 @@
 ## Repo hygiene
 
 - If there exists a docs folder:
-  - Add/maintain: README, docs/overview.md, docs/decisions/ (ADRs), and docs/dev-commands.md.
-  - If you make a non-trivial decision, write an ADR (short is fine).
+  - Add/maintain: README, docs/overview.md, docs/decisions/ (ADRs), and docs/dev-commands.md if such files exists.
+  - If you make a non-trivial decision, suggest wring an ADR (short is fine).
 
 ## Output expectations
 
@@ -49,3 +49,8 @@
 - By default conform to `rustfmt` with:
   - `imports_granularity = "Item"`.
   - `group_imports = StdExternalCrate`.
+
+## UI/UX
+
+- If UI/UX guidelines exists try your best to adhere to them.
+- Try to stay consistent with how other parts of the UI/UX works when adding new features.
