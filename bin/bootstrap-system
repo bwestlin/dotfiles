@@ -19,16 +19,17 @@ if lsb_release -a | grep -q Ubuntu; then
         golang-go \
         htop \
         jq \
-        keepassx \
+        keepassxc \
         libssl-dev \
         manpages-dev \
         net-tools \
         nmap \
         pkg-config \
+        qtchooser \
         ripgrep \
         shellcheck \
-        tree \
         tmux \
+        tree \
         vim \
         xclip \
         yadm \
