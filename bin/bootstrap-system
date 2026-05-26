@@ -133,24 +133,37 @@ fi
 echo "- Checking system config"
 
 TARGET_MAX_INOTIFY_INSTANCES=8192
+TARGET_MAX_INOTIFY_WATCHES=2097152
 SYSCTL_FILE="/etc/sysctl.d/99-inotify.conf"
 
 CURR_MAX_INOTIFY_INSTANCES=$(cat /proc/sys/fs/inotify/max_user_instances)
+CURR_MAX_INOTIFY_WATCHES=$(cat /proc/sys/fs/inotify/max_user_watches)
+
+NEEDS_PERSIST=0
 
 if (( CURR_MAX_INOTIFY_INSTANCES < TARGET_MAX_INOTIFY_INSTANCES )); then
   echo "  - Updating fs.inotify.max_user_instances to $TARGET_MAX_INOTIFY_INSTANCES..."
-
-  echo "fs.inotify.max_user_instances = $TARGET_MAX_INOTIFY_INSTANCES" \
-    | sudo tee "$SYSCTL_FILE" > /dev/null
-
   sudo sysctl -q fs.inotify.max_user_instances="$TARGET_MAX_INOTIFY_INSTANCES"
+  NEEDS_PERSIST=1
 else
   echo "  - fs.inotify.max_user_instances is already >= $TARGET_MAX_INOTIFY_INSTANCES (current: $CURR_MAX_INOTIFY_INSTANCES)"
+fi
 
-  if [ ! -f "$SYSCTL_FILE" ]; then
-    echo "  - Persisting value in $SYSCTL_FILE..."
+if (( CURR_MAX_INOTIFY_WATCHES < TARGET_MAX_INOTIFY_WATCHES )); then
+  echo "  - Updating fs.inotify.max_user_watches to $TARGET_MAX_INOTIFY_WATCHES..."
+  sudo sysctl -q fs.inotify.max_user_watches="$TARGET_MAX_INOTIFY_WATCHES"
+  NEEDS_PERSIST=1
+else
+  echo "  - fs.inotify.max_user_watches is already >= $TARGET_MAX_INOTIFY_WATCHES (current: $CURR_MAX_INOTIFY_WATCHES)"
+fi
 
-    echo "fs.inotify.max_user_instances = $TARGET_MAX_INOTIFY_INSTANCES" \
-      | sudo tee "$SYSCTL_FILE" > /dev/null
-  fi
+if (( NEEDS_PERSIST == 1 )) || [ ! -f "$SYSCTL_FILE" ]; then
+  echo "  - Persisting inotify config in $SYSCTL_FILE..."
+
+  cat <<EOF | sudo tee "$SYSCTL_FILE" > /dev/null
+fs.inotify.max_user_instances = $TARGET_MAX_INOTIFY_INSTANCES
+fs.inotify.max_user_watches = $TARGET_MAX_INOTIFY_WATCHES
+EOF
+else
+  echo "  - Inotify config already persisted in $SYSCTL_FILE"
 fi
