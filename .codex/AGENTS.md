@@ -50,6 +50,10 @@
   - `imports_granularity = "Item"`.
   - `group_imports = StdExternalCrate`.
 
+### Markdown
+
+- Markdown files should adhere to markdownlint in general and take into account any .markdownlint.json file or such.
+
 ## UI/UX
 
 - If UI/UX guidelines exists try your best to adhere to them.
