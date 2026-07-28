@@ -14,3 +14,7 @@ if command -v code &> /dev/null; then
     alias c='code'
     alias cdiff='code -d'
 fi
+
+# gfind
+alias gf='gfind'
+alias gfb='gfind b'
