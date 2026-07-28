@@ -10,6 +10,9 @@
 - Keep docs in-sync with behavior changes.
 - Be concise in summaries.
 - Preserve existing formatting and style.
+- Do not perform Git write operations such as `git add`, staging, committing,
+  rebasing, merging, or resetting unless explicitly asked. The user prefers to
+  handle those operations directly.
 
 ## Repo hygiene
 
@@ -38,6 +41,8 @@
 #### Structure
 
 - New modules should live under existing folders (no new top-level crates unless there is very good reason for it, if it is then ask).
+- Prefer the non-`mod.rs` module layout: use `foo.rs` as the module root and
+  `foo/bar.rs` for child modules instead of `foo/mod.rs`.
 
 #### Error handling
 
