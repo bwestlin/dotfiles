@@ -77,6 +77,7 @@ for crate in \
     cross \
     dprint \
     enw \
+    git-cliff \
     git-global \
     just \
     see-cat \
