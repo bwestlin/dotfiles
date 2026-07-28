@@ -77,6 +77,7 @@ for crate in \
     cross \
     dprint \
     enw \
+    gfind \
     git-cliff \
     git-global \
     just \
